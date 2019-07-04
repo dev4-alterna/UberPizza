@@ -1,0 +1,49 @@
+directive @auth on FIELD_DEFINITION | FIELD
+
+#importando los esquemas al esquema principal
+# import Post from "./schema/customers.graphql"
+# import Post from "./schema/address.graphql"
+# import Post from "./schema/products.graphql"
+# import Post from "./schema/providers.graphql"
+
+type Query{
+	listCustomers:[Customer]! @auth
+	singleCustomer(id:ID!):Customer!
+
+	listAddress:[Address]!
+	singleAddress(id:ID!):Address!
+
+	listProducts:[Product!]
+
+
+	listProviders:[Provider!]
+	singleProviders(id:ID!):Provider!
+}
+
+type Mutation{
+	login(email:String!,password:String,typeUser:TYPE_USER):Auth!
+	createCustomers(data:createCustomerInput!):Customer!
+	updateCustomers(id:ID!,data:updateCustomerInput!):Customer! @auth
+	deleteCustomers:String! @auth
+
+	createAddress(data:createAddressinput!):Address!
+	updateAddress(id:ID!,data:updateAddressinput!):Address! @auth
+	deleteAddress:String! @auth
+
+	createProducts(data:createProductsInput!):Product
+
+	createProviders(data:createProvidersInput!):Provider
+	updateProviders(id:ID!,data:updateProvidersInput!):Provider! @auth
+	deleteProviders:String! @auth
+	
+}
+
+type Auth{
+	token:String!
+	message:String!
+}
+
+enum TYPE_USER {
+	C
+	P
+}

@@ -1,0 +1,15 @@
+type Product{
+	_id:ID
+	name:String!
+	description:String!
+	price:Float!
+	profile_picture:String
+	
+}
+
+input createProductsInput{
+	name:String!,
+	description:String!,
+	price:Float!,
+	profile_picture:String
+}

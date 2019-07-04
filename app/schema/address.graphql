@@ -1,0 +1,39 @@
+type Address{
+	_id:ID
+	street:String!
+	inside_number:String!
+	outside_number:String
+	crossing:String!
+	cp:String!
+	colony:String!
+	reference:String
+	latitude:Float
+	longitude:Float
+	customer:Customer!
+	default:Boolean
+	is_active:Boolean
+}
+
+input createAddressinput{
+	street:String!
+	inside_number:String!
+	outside_number:String
+	crossing:String!
+	cp:String!
+	colony:String!
+	reference:String
+	latitude:Float
+	longitude:Float
+}
+
+input updateAddressinput{
+	street:String
+	inside_number:String
+	outside_number:String
+	crossing:String
+	cp:String
+	colony:String
+	reference:String
+	latitude:Float
+	longitude:Float
+}

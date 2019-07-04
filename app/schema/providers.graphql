@@ -1,0 +1,34 @@
+scalar Upload
+
+type Provider{
+	_id:ID
+	first_name:String!
+	last_name:String!
+	email:String!
+	password:String!
+	address:[Address]!
+	profile_picture:String
+	balance:Float
+	score:Float
+	is_active:Boolean!
+}
+
+input createProvidersInput{
+	first_name:String!
+	last_name:String!
+	email:String!
+	password:String!
+	profile_picture:Upload
+	balance:Float
+	score:Float
+}
+
+input updateProvidersInput{
+	first_name:String
+	last_name:String
+	email:String
+	password:String
+	profile_picture:Upload
+	balance:Float
+	score:Float
+}
