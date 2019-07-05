@@ -39,6 +39,10 @@ const AddressSchema= new Schema({
 		type:Schema.Types.ObjectId,
 		ref:'customers'
 	},
+	provider:{
+		type:Schema.Types.ObjectId,
+		ref:'providers'
+	},
 	default:{
 		type:Boolean,
 		default:false

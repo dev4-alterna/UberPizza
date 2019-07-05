@@ -14,7 +14,7 @@ type Query{
 	singleAddress(id:ID!):Address!
 
 	listProducts:[Product!]
-
+	singleProducts(id:ID!):Product!
 
 	listProviders:[Provider!]
 	singleProviders(id:ID!):Provider!
@@ -31,6 +31,8 @@ type Mutation{
 	deleteAddress:String! @auth
 
 	createProducts(data:createProductsInput!):Product
+	updateProducts(id:ID!,data:updateProductsInput!):Product! @auth
+	deleteProducts:String! @auth
 
 	createProviders(data:createProvidersInput!):Provider
 	updateProviders(id:ID!,data:updateProvidersInput!):Provider! @auth

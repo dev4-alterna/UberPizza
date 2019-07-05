@@ -27,6 +27,11 @@ const ProvidersSchema= new Schema({
 		type:[Schema.Types.ObjectId],
 		ref:'address' 
 	},
+	products:{
+		/*listado de productos*/
+		type:[Schema.Types.ObjectId],
+		ref:'products' 
+	},
 	profile_picture:{
 		type:String
 	},
