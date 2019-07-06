@@ -35,14 +35,6 @@ const AddressSchema= new Schema({
 	longitude:{
 		type:Number
 	},
-	customer:{
-		type:Schema.Types.ObjectId,
-		ref:'customers'
-	},
-	provider:{
-		type:Schema.Types.ObjectId,
-		ref:'providers'
-	},
 	default:{
 		type:Boolean,
 		default:false

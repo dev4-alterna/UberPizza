@@ -9,8 +9,6 @@ type Address{
 	reference:String
 	latitude:Float
 	longitude:Float
-	customer:Customer!
-	provider:Provider!
 	default:Boolean
 	is_active:Boolean
 }
