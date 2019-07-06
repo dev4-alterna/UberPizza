@@ -5,6 +5,7 @@ type Provider{
 	first_name:String!
 	last_name:String!
 	email:String!
+	telephone:String!
 	password:String!
 	address:[Address]!
 	products:[Product]!
@@ -18,6 +19,7 @@ input createProvidersInput{
 	first_name:String!
 	last_name:String!
 	email:String!
+	telephone:String!
 	password:String!
 	profile_picture:Upload
 	balance:Float
@@ -28,6 +30,7 @@ input updateProvidersInput{
 	first_name:String
 	last_name:String
 	email:String
+	telephone:String
 	password:String
 	profile_picture:Upload
 	balance:Float

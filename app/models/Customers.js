@@ -17,6 +17,11 @@ const CustomersSchema= new Schema({
 		required:true,
 		unique:true
 	},
+	telephone:{
+		type:String,
+		required:true,
+		unique:true
+	},
 	password:{
 		type:String,
 		required:true
