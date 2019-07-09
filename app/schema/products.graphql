@@ -6,7 +6,7 @@ type Product{
 	description:String!
 	price:Float!
 	profile_picture:String
-	provider:[Provider]!
+	provider:Provider
 	
 }
 

@@ -1,0 +1,48 @@
+scalar Date
+
+type Sales {
+	_id:ID
+	customer:Customer
+    address: Address
+    payment_method:TYPE_METHOD!
+    status: TYPE_STATUS
+    sales_detail:[SalesDetail]
+    commentary:String
+    deliver_date:Date
+    date_order:Date
+	totals:Float
+    Subtotals:Float
+	is_active:Boolean
+    charge:Float
+}
+
+
+input createSalesInput{
+    address:String
+    sales_detail:[createSalesDetailInput]
+	payment_method:TYPE_METHOD!
+    status: TYPE_STATUS
+    commentary:String
+    deliver_date:Date
+    date_order:Date
+	totals:Float
+    Subtotals:Float
+	is_active:Boolean
+    charge:Float
+}
+
+enum TYPE_METHOD {
+	E
+	T
+}
+
+enum TYPE_STATUS{
+	Pedido
+	Pagado
+    Preparacion
+    Horno
+    Detalles
+    Repartidor
+    Entregado
+    Cancelado
+}

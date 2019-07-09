@@ -1,13 +1,27 @@
 const AddressModel=require('../../models/Address');
+const CustomerModel=require('../../models/Customers');
+const ProvidersModel=require('../../models/Providers');
+
 
 const createAddress= async(root,params,context,info)=>{
 	
-	const newAddress= await AddressModel.create(params.data)
-								.catch(e=>{throw new Error(e.message)})
-									  
-	if(!newAddress) throw new Error("No se creo el 'Direccion'");								  
-	
-	return newAddress.toObject();
+	const {user} = context;
+	const {payload}=context;
+
+	// usuario debe esta logueado para recuperar el id
+	const Address = await AddressModel.create(params.data)
+								.catch( e => {throw new Error("Error al crear la dirección")} )
+	const newAddress= await AddressModel.findOne({_id:Address._id});
+
+	if(payload.typeUser=='C')
+	{
+		await CustomerModel.findByIdAndUpdate(user.id,{$push:{address:Address}})
+	}
+	else if(payload.typeUser=='P')
+	{
+		await ProvidersModel.findByIdAndUpdate(user.id,{$push:{address:Address}})
+	} 
+	return newAddress;
 }
 const updateAddress= async(root,params,context,info)=>{
 	const {data} = params 

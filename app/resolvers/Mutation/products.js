@@ -4,7 +4,8 @@ const storage=require('../../utils/storage');
 
 
 const createProducts= async(root,params,context,info)=>{
-	
+	const {user} = context;
+	params.data.provider = user;
 	if(params.data.profile_picture){
 		//se obtiene la direccion de la foto
 		const { createReadStream}=await params.data.profile_picture;
@@ -13,10 +14,12 @@ const createProducts= async(root,params,context,info)=>{
 
 		params.data.profile_picture=url;
 	}
-
+	//crear producto
 	const Product = await ProductsModel.create(params.data)
 								.catch( e => {throw new Error("Error al crear producto")} )
+	//buscar producto
 	const newProducts = await ProductsModel.findOne({_id:Product._id}).populate('provider');
+	// actualizar provider
 	await ProvidersModel.findByIdAndUpdate(user.id,{$push:{products:Product}})
 	return newProducts;
 }

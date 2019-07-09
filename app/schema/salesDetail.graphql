@@ -1,0 +1,14 @@
+type SalesDetail {
+	_id:ID
+    sales:Sales
+    product:Product!
+    quantity:Float
+    amount:Float
+}
+
+input createSalesDetailInput{
+    sales:String
+    product:String
+    quantity:Float
+    amount:Float
+}

@@ -16,8 +16,8 @@ const ProductsSchema= new Schema({
 		required:true
 	},
 	profile_picture:{
-		type:String,
-		required:true
+		type:String
+		//,required:true
 	},
 	provider:{
 		type:Schema.Types.ObjectId,

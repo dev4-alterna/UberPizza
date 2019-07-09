@@ -1,10 +1,12 @@
 directive @auth on FIELD_DEFINITION | FIELD
 
 #importando los esquemas al esquema principal
-# import Post from "./schema/customers.graphql"
-# import Post from "./schema/address.graphql"
-# import Post from "./schema/products.graphql"
-# import Post from "./schema/providers.graphql"
+# import customers from "./schema/customers.graphql"
+# import address from "./schema/address.graphql"
+# import products from "./schema/products.graphql"
+# import providers from "./schema/providers.graphql"
+# import sales from "./schema/sales.graphql"
+# import detail from "./schema/salesDetail.graphql"
 
 type Query{
 	listCustomers:[Customer]! @auth
@@ -18,6 +20,12 @@ type Query{
 
 	listProviders:[Provider!]
 	singleProviders(id:ID!):Provider!
+
+	listSales:[Sales!]
+	singleSales(id:ID!):Sales!
+
+	listSalesDetail:[Sales!]
+	singleSalesDetail(id:ID!):Sales!
 }
 
 type Mutation{
@@ -26,7 +34,7 @@ type Mutation{
 	updateCustomers(id:ID!,data:updateCustomerInput!):Customer! @auth
 	deleteCustomers:String! @auth
 
-	createAddress(data:createAddressinput!):Address!
+	createAddress(data:createAddressinput!):Address! @auth
 	updateAddress(id:ID!,data:updateAddressinput!):Address! @auth
 	deleteAddress:String! @auth
 
@@ -37,6 +45,8 @@ type Mutation{
 	createProviders(data:createProvidersInput!):Provider
 	updateProviders(id:ID!,data:updateProvidersInput!):Provider! @auth
 	deleteProviders:String! @auth
+
+	createSales(data:createSalesInput!):Sales! @auth
 	
 }
 
