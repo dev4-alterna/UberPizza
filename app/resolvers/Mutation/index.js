@@ -3,6 +3,7 @@ const MutationAddress=require('./address');
 const MutationProducts=require('./products');
 const MutationProviders=require('./providers');
 const MutationSales=require('./sales');
+const MutationSalesDetail=require('./salesDetail');
 
 //console.log(MutationCustomers);
 
@@ -11,5 +12,6 @@ module.exports={
     ...MutationAddress,
     ...MutationProducts,
     ...MutationProviders,
-    ...MutationSales
+    ...MutationSales,
+    ...MutationSalesDetail
 }

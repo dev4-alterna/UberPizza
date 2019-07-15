@@ -9,6 +9,13 @@ type SalesDetail {
 input createSalesDetailInput{
     sales:String
     product:String
+    quantity:Float!
+    amount:Float!
+}
+
+input updateSalesDetailInput{
+    sales:String
+    product:String
     quantity:Float
     amount:Float
 }

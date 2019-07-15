@@ -6,7 +6,7 @@ const createCustomers= async(root,params,context,info)=>{
 	
 	if(params.data.profile_picture){
 		//se obtiene la direccion de la foto
-		const { createReadStream}=await params.data.profile_picture;
+		const { createReadStream }=await params.data.profile_picture;
 		const stream = createReadStream();
 		const {url}= await storage({stream});
 

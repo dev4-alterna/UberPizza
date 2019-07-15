@@ -18,9 +18,21 @@ type Sales {
 
 
 input createSalesInput{
-    address:String
-    sales_detail:[createSalesDetailInput]
+    address:String!
 	payment_method:TYPE_METHOD!
+    status: TYPE_STATUS
+    commentary:String
+    deliver_date:Date
+    date_order:Date
+	totals:Float
+    Subtotals:Float
+	is_active:Boolean
+    charge:Float
+}
+
+input updateSalesInput{
+	address:String
+	payment_method:TYPE_METHOD
     status: TYPE_STATUS
     commentary:String
     deliver_date:Date

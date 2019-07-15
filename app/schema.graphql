@@ -24,8 +24,8 @@ type Query{
 	listSales:[Sales!]
 	singleSales(id:ID!):Sales!
 
-	listSalesDetail:[Sales!]
-	singleSalesDetail(id:ID!):Sales!
+	listSalesDetail:[SalesDetail!]
+	singleSalesDetail(id:ID!):SalesDetail!
 }
 
 type Mutation{
@@ -47,7 +47,12 @@ type Mutation{
 	deleteProviders:String! @auth
 
 	createSales(data:createSalesInput!):Sales! @auth
-	
+	updateSales(id:ID!,data:updateSalesInput!):Sales! @auth
+	deleteSales:String! @auth
+
+	createSalesDetail(data:createSalesDetailInput!):SalesDetail! @auth
+	updateSalesDetail(id:ID!,data:updateSalesDetailInput!):SalesDetail! @auth
+	deleteSalesDetail:String! @auth
 }
 
 type Auth{

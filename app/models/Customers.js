@@ -32,7 +32,8 @@ const CustomersSchema= new Schema({
 		ref:'address' 
 	},
 	profile_picture:{
-		type:String
+		type:String,
+		default:"http://res.cloudinary.com/dadgbbhge/image/upload/v1563216252/o3fdoubbruduwmuka52e.jpg"
 	},
 	balance:{ 
 		/*saldo actual*/
