@@ -10,19 +10,19 @@ Date.prototype.addDays = function(days){
 
 }
 const createToken = ({_id,email,profile_picture,first_name,last_name,typeUser}) => {
-//console.log(profile_picture)
+
 	const exp = new Date().addDays(1).getTime()
 
 	const payload = {
 		_id,
 		email,
 		exp,
-		typeUser,
 		first_name,
 		last_name,
-		profile_picture
+		profile_picture,
+		typeUser
 	}
-
+	console.log(payload)
 	return jwt.sign(payload, process.env.SECRET_KEY )
 
 }

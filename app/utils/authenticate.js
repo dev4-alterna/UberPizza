@@ -14,7 +14,6 @@ const authenticate =  ({ email, password,typeUser }) => {
 				bcrypt.compare(password,user.password,(err,isValid) => {
 					if(err) reject(new Error("Error al crear el Token "))
 					user['typeUser']=typeUser;
-					
 					isValid ? resolve(createToken(user)) : reject("Password no coinciden")
 	
 				})

@@ -9,7 +9,7 @@ directive @auth on FIELD_DEFINITION | FIELD
 # import detail from "./schema/salesDetail.graphql"
 
 type Query{
-	listCustomers:[Customer]! @auth
+	listCustomers:[Customer]!
 	singleCustomer(id:ID!):Customer!
 
 	listAddress:[Address]!
