@@ -29,7 +29,7 @@ const updateProducts = async(root,params,context,info) => {
 	const {user} = context;
 	
 	//valida que el producto exista
-	let Products=await ProductsModel.findById(user._id)
+	let Products=await ProductsModel.findById(id)
 	if(!Products) throw new Error("Producto no existe")
 
 	if(data.profile_picture){

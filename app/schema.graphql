@@ -12,7 +12,7 @@ type Query{
 	listCustomers:[Customer]!
 	singleCustomer(id:ID!):Customer!
 
-	listAddress:[Address]!
+	listAddress:[Address]!  @auth
 	singleAddress(id:ID!):Address!
 
 	listProducts:[Product!]

@@ -4,14 +4,13 @@ const SalesDetailModel=require('../../models/sales_detail');
 const listSales= async(root,params,context,info)=>{ 
 	const {user}=context
 	const Sales= await SalesModel.find({is_active:true,status:params.status,customer:user._id}).populate('address').populate('sales_detail');
-	
-	//Sales.sales_detail=details;
+
 	for (i in Sales) {
 		const detail= Sales[i];
 		const details=await SalesDetailModel.find({sales:detail._id}).populate('product');		
 		Sales[i].sales_detail=details
     }
-	console.log(Sales)
+	//console.log(Sales)
 	return Sales
 }
 

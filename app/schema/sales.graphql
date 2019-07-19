@@ -13,7 +13,8 @@ type Sales {
 	totals:Float
     Subtotals:Float
 	is_active:Boolean
-    charge:Float
+    charge:Float,
+    createdAt:Date
 }
 
 
