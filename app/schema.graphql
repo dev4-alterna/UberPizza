@@ -21,7 +21,7 @@ type Query{
 	listProviders:[Provider!]
 	singleProviders(id:ID!):Provider!
 
-	listSales:[Sales!]
+	listSales(status:TYPE_STATUS!):[Sales!] @auth
 	singleSales(id:ID!):Sales!
 
 	listSalesDetail:[SalesDetail!]

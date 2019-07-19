@@ -1,7 +1,8 @@
 const SalesModel=require('../../models/Sales');
 
-const listSales= async(root,params,context,info)=>{
-	const Sales= await SalesModel.find({is_active:true}).populate('sales_detail');
+const listSales= async(root,params,context,info)=>{ 
+	const {user}=context
+	const Sales= await SalesModel.find({is_active:true,status:params.status,customer:user._id}).populate('sales_detail');
 	return Sales
 }
 
