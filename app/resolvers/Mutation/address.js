@@ -11,7 +11,22 @@ const createAddress= async(root,params,context,info)=>{
 	// usuario debe esta logueado para recuperar el id
 	const Address = await AddressModel.create(params.data)
 								.catch( e => {throw new Error("Error al crear la dirección")} )
-	const newAddress= await AddressModel.findOne({_id:Address._id});
+	AddressModel.findOne({_id:Address._id}).then(async(address) => {
+		if(payload.typeUser=='C')
+		{
+			await CustomerModel.findByIdAndUpdate(user.id,{$push:{address}})
+		}
+		else if(payload.typeUser=='P')
+		{
+			await ProvidersModel.findByIdAndUpdate(user.id,{$push:{address}})
+		} 
+
+
+	});
+
+	return Address;
+
+/* 	const newAddress= await AddressModel.findOne({_id:Address._id});
 
 	if(payload.typeUser=='C')
 	{
@@ -21,7 +36,7 @@ const createAddress= async(root,params,context,info)=>{
 	{
 		await ProvidersModel.findByIdAndUpdate(user.id,{$push:{address:Address}})
 	} 
-	return newAddress;
+	return newAddress; */
 }
 const updateAddress= async(root,params,context,info)=>{
 	const {data} = params 

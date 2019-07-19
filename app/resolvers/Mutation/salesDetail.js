@@ -15,7 +15,9 @@ const createSalesDetail= async(root,params,context,info)=>{
 								.catch(e=>{throw new Error(e.message)})
 	//valida si se creo la venta							  
 	if(!SalesDetail) throw new Error("No se creo el detalle");								  
-    const newSalesDetail = await SalesDetailModel.findOne({_id:SalesDetail._id}).populate('products');
+	const newSalesDetail = await SalesDetailModel.findOne({_id:SalesDetail._id}).populate('products');
+	
+	await SalesModel.findByIdAndUpdate(Sales._id,{$push:{sales_detail:SalesDetail}})
 
     return newSalesDetail.toObject();
 

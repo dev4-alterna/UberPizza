@@ -9,6 +9,7 @@ const listProviders=async(root,params,context,info)=>{
 const singleProviders= async(root,params,context,info)=>{
 
 	const provider =  await ProvidersModel.findById(params.id).populate('address');
+	
 	if(!provider) throw new Error("Proveedor no existe");
 	return provider.toObject();
 }
